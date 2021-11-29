@@ -1,0 +1,10 @@
+C:\Users\darwin\Documents\Visual Studio 2019\project\Proyecto1_01\obj\Debug\Proyecto1_01.csproj.AssemblyReference.cache
+C:\Users\darwin\Documents\Visual Studio 2019\project\Proyecto1_01\obj\Debug\Proyecto1_01.csproj.CoreCompileInputs.cache
+C:\Users\darwin\Documents\Visual Studio 2019\project\Proyecto1_01\bin\Debug\Proyecto1_01.exe.config
+C:\Users\darwin\Documents\Visual Studio 2019\project\Proyecto1_01\bin\Debug\Proyecto1_01.exe
+C:\Users\darwin\Documents\Visual Studio 2019\project\Proyecto1_01\bin\Debug\Proyecto1_01.pdb
+C:\Users\darwin\Documents\Visual Studio 2019\project\Proyecto1_01\bin\Debug\OpenTK.dll
+C:\Users\darwin\Documents\Visual Studio 2019\project\Proyecto1_01\bin\Debug\OpenTK.pdb
+C:\Users\darwin\Documents\Visual Studio 2019\project\Proyecto1_01\bin\Debug\OpenTK.xml
+C:\Users\darwin\Documents\Visual Studio 2019\project\Proyecto1_01\obj\Debug\Proyecto1_01.exe
+C:\Users\darwin\Documents\Visual Studio 2019\project\Proyecto1_01\obj\Debug\Proyecto1_01.pdb
