@@ -9,7 +9,7 @@ namespace Proyecto1_01
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             Game juego = new Game(800, 600, "LearnOpenTK");
             juego.Run(60);

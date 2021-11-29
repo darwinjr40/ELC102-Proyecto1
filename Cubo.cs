@@ -26,9 +26,8 @@ namespace Proyecto1
             this.profundidad = profundidad;
         }
 
-        public void Dibujar()
+        public void dibujar()
         {
-            GL.Rotate(20, 1, 1, 0);
             PrimitiveType primitiveType = PrimitiveType.LineLoop;
             //PrimitiveType primitiveType = PrimitiveType.Quads;
             //GL.Rotate(0.9, 1, 1, 1);
