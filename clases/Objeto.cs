@@ -12,7 +12,6 @@ namespace Proyecto1
     public class Objeto : IObjeto
     {
         public Punto origen;
-        public Punto rotacion;
         public float ancho;
         public float alto;
         public float profundidad;
@@ -25,7 +24,6 @@ namespace Proyecto1
             this.alto = alto;
             this.profundidad = profundidad;
             this.lista = caras;
-            this.rotacion = new Punto();
         }
         //--------------------------------------------------------------------------------------------------------------------
         public Objeto(Objeto objeto)
@@ -35,7 +33,6 @@ namespace Proyecto1
             this.alto = objeto.alto;
             this.profundidad = objeto.profundidad;
             this.lista = new Dictionary<string, Cara>();
-            this.rotacion = new Punto();
             foreach (var caras in objeto.lista)
                 this.Adicionar(caras.Key, new Cara(caras.Value));
         }

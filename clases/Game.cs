@@ -16,7 +16,6 @@ namespace Proyecto1
 
 
         Escenario escenario;
-        Cubo cubo;
         //-----------------------------------------------------------------------------------------------------------------
         public Game(int width, int height, string title) : base(width, height, GraphicsMode.Default, title) {
             
@@ -30,16 +29,14 @@ namespace Proyecto1
         protected override void OnLoad(EventArgs e)
         {
             GL.ClearColor(Color4.Black);
+            this.escenario = new Escenario();
+            this.cargarEscenario();
             base.OnLoad(e);     
         }
         //-----------------------------------------------------------------------------------------------------------------
         protected override void OnUnload(EventArgs e)
         {
             GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
-            //GL.DeleteBuffer(VertexBufferObject);
-            //escenario = new Escenario();
-            cubo = new Cubo(new Punto(), 10 ,10,10);
-            //this.cargarEscenario();
             base.OnUnload(e);
         }
         //-----------------------------------------------------------------------------------------------------------------
@@ -50,8 +47,7 @@ namespace Proyecto1
             GL.Enable(EnableCap.DepthTest);
             GL.LoadIdentity();
             //-----------------------
-            //this.escenario.Dibujar();
-            cubo.dibujar();
+            this.escenario.Dibujar();
             //-----------------------
             Context.SwapBuffers();
             base.OnRenderFrame(e);
@@ -70,123 +66,121 @@ namespace Proyecto1
             base.OnResize(e);
         }
 
-        //public void cargarEscenario()
-        //{
-            
-        //    this.escenario.SetObjeto("cubo1",GetCuboSimple());
+        public void cargarEscenario()
+        {
+            this.escenario.SetObjeto("cubo1", GetCuboSimple());
+        }
 
-        //}
+        public Objeto GetCuboSimple() //todos el mismo origen
+        {
+            Dictionary<string, Cara> caras = new Dictionary<string, Cara>
+                         {
+                            //atras
+                            {
+                                "cara1",
+                                new Cara(
+                                    new Punto(0, 0, 0),
+                                    PrimitiveType.LineLoop,
+                                    new Dictionary<string, Punto>
+                                    {
+                                        { "punto1", new Punto(-10.0f, -10.0f, -10.0f) },
+                                        { "punto2", new Punto(-10.0f, 10.0f, -10.0f) },
+                                        { "punto3", new Punto(10.0f, 10.0f, -10.0f) },
+                                        { "punto4", new Punto(10.0f, -10.0f, -10.0f) }
+                                    },
+                                    Color.Pink,
+                                    new Punto(0, 0, -10.0f)
+                                )
+                            },
+                            //izquierda
+                            {
+                                "cara2",
+                                new Cara(
+                                    new Punto(0, 0, 0),
+                                    PrimitiveType.LineLoop,
+                                    new Dictionary<string, Punto>
+                                    {
+                                        { "punto1", new Punto(-10.0f, -10.0f, -10.0f) },
+                                        { "punto2", new Punto(-10.0f, 10.0f, -10.0f) },
+                                        { "punto3", new Punto(-10.0f, 10.0f, 10.0f) },
+                                        { "punto4", new Punto(-10.0f, -10.0f, 10.0f) }
+                                    },
+                                    Color.Red,
+                                    new Punto(-10.0f, 0, 0)
+                                )
+                            },
+                            //derecha
+                            {
+                                "cara3",
+                                new Cara(
+                                    new Punto(0, 0, 0),
+                                    PrimitiveType.LineLoop,
+                                    new Dictionary<string, Punto>
+                                    {
+                                        { "punto1", new Punto(10.0f, -10.0f, 10.0f) },
+                                        { "punto2", new Punto(10.0f, 10.0f, 10.0f) },
+                                        { "punto3", new Punto(10.0f, 10.0f, -10.0f) },
+                                        { "punto4", new Punto(10.0f, -10.0f, -10.0f) }
+                                    },
+                                    Color.Yellow,
+                                    new Punto(10.0f, 0, 0)
+                                )
+                            },
+                            //superior
+                            {
+                                "cara4",
+                                new Cara(
+                                    new Punto(0, 0, 0),
+                                    PrimitiveType.LineLoop,
+                                    new Dictionary<string, Punto>
+                                    {
+                                        { "punto1", new Punto(-10.0f, 10.0f, 10.0f) },
+                                        { "punto2", new Punto(-10.0f, 10.0f, -10.0f) },
+                                        { "punto3", new Punto(10.0f, 10.0f, -10.0f) },
+                                        { "punto4", new Punto(10.0f, 10.0f, 10.0f) }
+                                    },
+                                    Color.Aqua,
+                                    new Punto(0, 10.0f, 0)
+                                )
+                            },
+                            //inferior
+                            {
+                                "cara5",
+                                new Cara(
+                                    new Punto(0, 0, 0),
+                                    PrimitiveType.LineLoop,
+                                    new Dictionary<string, Punto>
+                                    {
+                                        { "1", new Punto(-10.0f, -10.0f, -10.0f) },
+                                        { "2", new Punto(-10.0f, -10.0f, 10.0f) },
+                                        { "3", new Punto(10.0f, -10.0f, 10.0f) },
+                                        { "4", new Punto(10.0f, -10.0f, -10.0f) }
+                                    },
+                                    Color.Blue,
+                                    new Punto(0, -10.0f, 0)
+                                )
+                            },
+                           // frente
+                            {
+                                "cara6",
+                                new Cara(
+                                    new Punto(0, 0, 0),
+                                    PrimitiveType.LineLoop,
+                                    new Dictionary<string, Punto>
+                                    {
+                                        { "punto1", new Punto(-10.0f, -10.0f, 10.0f) },
+                                        { "punto2", new Punto(-10.0f, 10.0f, 10.0f) },
+                                        { "punto3", new Punto(10.0f, 10.0f, 10.0f) },
+                                        { "punto4", new Punto(10.0f, -10.0f, 10.0f) }
+                                    },
+                                    Color.Green,
+                                    new Punto(0, 0, 10)
+                                )
+                            },
 
-        //public  Objeto GetCuboSimple() //todos el mismo origen
-        //{
-        //    Dictionary<string, Cara> caras = new Dictionary<string, Cara>
-        //                 {
-        //                    //atras
-        //                    {
-        //                        "cara1",
-        //                        new Cara(
-        //                            new Punto(0, 0, 0),
-        //                            PrimitiveType.LineLoop,
-        //                            new Dictionary<string, Punto>
-        //                            {
-        //                                { "punto1", new Punto(-10.0f, -10.0f, -10.0f) },
-        //                                { "punto2", new Punto(-10.0f, 10.0f, -10.0f) },
-        //                                { "punto3", new Punto(10.0f, 10.0f, -10.0f) },
-        //                                { "punto4", new Punto(10.0f, -10.0f, -10.0f) }
-        //                            },
-        //                            Color.Pink,
-        //                            new Punto(0, 0, -10.0f)
-        //                        )
-        //                    },
-        //                    //izquierda
-        //                    {
-        //                        "cara2",
-        //                        new Cara(
-        //                            new Punto(0, 0, 0),
-        //                            PrimitiveType.LineLoop,
-        //                            new Dictionary<string, Punto>
-        //                            {
-        //                                { "punto1", new Punto(-10.0f, -10.0f, -10.0f) },
-        //                                { "punto2", new Punto(-10.0f, 10.0f, -10.0f) },
-        //                                { "punto3", new Punto(-10.0f, 10.0f, 10.0f) },
-        //                                { "punto4", new Punto(-10.0f, -10.0f, 10.0f) }
-        //                            },
-        //                            Color.Red,
-        //                            new Punto(-10.0f, 0, 0)
-        //                        )
-        //                    },
-        //                    //derecha
-        //                    {
-        //                        "cara3",
-        //                        new Cara(
-        //                            new Punto(0, 0, 0),
-        //                            PrimitiveType.LineLoop,
-        //                            new Dictionary<string, Punto>
-        //                            {
-        //                                { "punto1", new Punto(10.0f, -10.0f, 10.0f) },
-        //                                { "punto2", new Punto(10.0f, 10.0f, 10.0f) },
-        //                                { "punto3", new Punto(10.0f, 10.0f, -10.0f) },
-        //                                { "punto4", new Punto(10.0f, -10.0f, -10.0f) }
-        //                            },
-        //                            Color.Yellow,
-        //                            new Punto(10.0f, 0, 0)
-        //                        )
-        //                    },
-        //                    //superior
-        //                    {
-        //                        "cara4",
-        //                        new Cara(
-        //                            new Punto(0, 0, 0),
-        //                            PrimitiveType.LineLoop,
-        //                            new Dictionary<string, Punto>
-        //                            {
-        //                                { "punto1", new Punto(-10.0f, 10.0f, 10.0f) },
-        //                                { "punto2", new Punto(-10.0f, 10.0f, -10.0f) },
-        //                                { "punto3", new Punto(10.0f, 10.0f, -10.0f) },
-        //                                { "punto4", new Punto(10.0f, 10.0f, 10.0f) }
-        //                            },
-        //                            Color.Aqua,
-        //                            new Punto(0, 10.0f, 0)
-        //                        )
-        //                    },
-        //                    //inferior
-        //                    {
-        //                        "cara5",
-        //                        new Cara(
-        //                            new Punto(0, 0, 0),
-        //                            PrimitiveType.LineLoop,
-        //                            new Dictionary<string, Punto>
-        //                            {
-        //                                { "1", new Punto(-10.0f, -10.0f, -10.0f) },
-        //                                { "2", new Punto(-10.0f, -10.0f, 10.0f) },
-        //                                { "3", new Punto(10.0f, -10.0f, 10.0f) },
-        //                                { "4", new Punto(10.0f, -10.0f, -10.0f) }
-        //                            },
-        //                            Color.Blue,
-        //                            new Punto(0, -10.0f, 0)
-        //                        )
-        //                    },
-        //                   // frente
-        //                    {
-        //                        "cara6",
-        //                        new Cara(
-        //                            new Punto(0, 0, 0),
-        //                            PrimitiveType.LineLoop,
-        //                            new Dictionary<string, Punto>
-        //                            {
-        //                                { "punto1", new Punto(-10.0f, -10.0f, 10.0f) },
-        //                                { "punto2", new Punto(-10.0f, 10.0f, 10.0f) },
-        //                                { "punto3", new Punto(10.0f, 10.0f, 10.0f) },
-        //                                { "punto4", new Punto(10.0f, -10.0f, 10.0f) }
-        //                            },
-        //                            Color.Green,
-        //                            new Punto(0, 0, 10)
-        //                        )
-        //                    },
-
-        //                 };
-        //    return new Objeto(new Punto(0, 0, 0), 5, 5, 5, caras);
-        //}
+                         };
+            return new Objeto(new Punto(0, 0, 0), 5, 5, 5, caras);
+        }
 
     }
 }

@@ -50,7 +50,6 @@
     <Compile Include="clases\Escenario.cs" />
     <Compile Include="clases\IObjeto.cs" />
     <Compile Include="clases\Objeto.cs" />
-    <Compile Include="Cubo.cs" />
     <Compile Include="Extras\Punto.cs" />
     <Compile Include="clases\Game.cs" />
     <Compile Include="Program.cs" />
