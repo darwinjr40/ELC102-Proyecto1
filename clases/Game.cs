@@ -27,6 +27,8 @@ namespace Proyecto1
             this.escenario = new Escenario();
             //Objeto.SerializeJsonFile("cubo.json", GetCuboSimple());
             escenario.SetObjeto("cubo", Objeto.DeserializeJsonFile("cubo.json"));
+            escenario.SetObjeto("cubo1", Objeto.DeserializeJsonFile("cubo.json"));
+            escenario.GetObjeto("cubo1").SetOrigen(-30, 20, 0);
             //------------------------------
             base.OnLoad(e);     
         }
@@ -40,6 +42,7 @@ namespace Proyecto1
             GL.LoadIdentity();
             //-----------------------
             this.escenario.Dibujar();
+            Console.WriteLine(this.escenario.escalacion.ToString());
             //-----------------------
             Context.SwapBuffers();
             base.OnRenderFrame(e);
@@ -47,7 +50,7 @@ namespace Proyecto1
         //-----------------------------------------------------------------------------------------------------------------
         protected override void OnResize(EventArgs e)
         {
-            float d = 30;
+            float d = 80;
             GL.Viewport(0, 0, Width, Height);
             GL.MatrixMode(MatrixMode.Projection);
             GL.LoadIdentity();
@@ -66,9 +69,75 @@ namespace Proyecto1
         //-----------------------------------------------------------------------------------------------------------------
         protected override void OnUpdateFrame(FrameEventArgs e)
         {
+            this.capturarTeclado();
             base.OnUpdateFrame(e);
         }
 
+        public void capturarTeclado()
+        {
+            KeyboardState input = Keyboard.GetState();
+            if (input.IsKeyDown(Key.Q))
+            {
+                escenario.Rotar(0.8f, 0, 0);
+            }
+            if (input.IsKeyDown(Key.W))
+            {
+                escenario.Rotar(0, 0.8f, 0);
+            }
+            if (input.IsKeyDown(Key.E))
+            {
+                escenario.Rotar(0, 0, 0.8f);
+            }
+            if (input.IsKeyDown(Key.A))
+            {
+                escenario.Trasladar(-1f, 0, 0);
+            }
+            if (input.IsKeyDown(Key.S))
+            {
+                escenario.Trasladar(1f, 0, 0);
+            }
+            if (input.IsKeyDown(Key.D))
+            {
+                escenario.Trasladar(0, 1.0f, 0);
+            }
+            if (input.IsKeyDown(Key.F))
+            {
+                escenario.Trasladar(0, -1.0f, 0);
+            }
+            if (input.IsKeyDown(Key.G))
+            {
+                escenario.Trasladar(0, 0, 1.0f);
+            }
+            if (input.IsKeyDown(Key.H))
+            {
+                escenario.Trasladar(0, 0, -1.0f);
+            }
 
+            if (input.IsKeyDown(Key.Z))
+            {
+                escenario.Escalar(0.9f, 0, 0);
+            }
+            if (input.IsKeyDown(Key.X))
+            {
+                escenario.Escalar(1.1f, 0, 0);
+            }
+            if (input.IsKeyDown(Key.C))
+            {
+                escenario.Escalar(0, 0.9f, 0);
+            }
+            if (input.IsKeyDown(Key.V))
+            {
+                escenario.Escalar(0, 1.1f, 0);
+            }
+            if (input.IsKeyDown(Key.B))
+            {
+                escenario.Escalar(0, 0, 0.9f);
+            }
+            if (input.IsKeyDown(Key.N))
+            {
+                escenario.Escalar(0, 0, 1.1f);
+            }
+
+        }
     }
 }

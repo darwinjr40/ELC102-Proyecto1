@@ -44,7 +44,7 @@ namespace Proyecto1
             this.profundidad = objeto.profundidad;
             this.lista = new Dictionary<string, Cara>();
             foreach (var caras in objeto.lista)
-                this.Adicionar(caras.Key, new Cara(caras.Value));
+                this.SetCara(caras.Key, new Cara(caras.Value));
         }
         //--------------------------------------------------------------------------------------------------------------------
 
@@ -72,15 +72,22 @@ namespace Proyecto1
             return JsonConvert.DeserializeObject<Objeto>(textJson);
         }
         //--------------------------------------------------------------------------------------------------------------------
-        public void Adicionar(string name, Cara x)
+        public void SetCara(string name, Cara x)
         {
             if (lista.ContainsKey(name)) { 
                 lista.Remove(name); 
             }
-            x.origen.acumular(origen);
             lista.Add(name, x);
         }
 
+        public void SetOrigen(float x, float y, float z)
+        {
+            foreach (var caras in lista.Values) { 
+                caras.origen.x = x;
+                caras.origen.y = y;
+                caras.origen.z = z;
+            }
+        }
         public Cara GetCara(string name)
         {
             return (lista.ContainsKey(name)) ? lista[name] : null;
