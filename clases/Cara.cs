@@ -7,22 +7,32 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using OpenTK;
+using Newtonsoft.Json;
 
 namespace Proyecto1
 {
+    [JsonObject(MemberSerialization.OptIn)]
     public class Cara : IObjeto
     {
 
-        public Punto origen ;
-         public Punto cm;
-        public Punto rotacion;
-        public Punto escalacion;
-        public Dictionary<string, Punto> lista;
-        public Color color;
-        public PrimitiveType tipo;
-        
-        
-       //-----------------------------------------------------------------------------------------------------------------
+        [JsonProperty] public Punto origen;
+        [JsonProperty] public Punto cm;
+        [JsonProperty] public Dictionary<string, Punto> lista;
+        [JsonProperty] public Color color;
+        [JsonProperty] public PrimitiveType tipo;
+
+
+        //-----------------------------------------------------------------------------------------------------------------
+        public Cara()
+        {
+            this.lista = new Dictionary<string, Punto>();
+            this.origen = new Punto();
+            this.tipo = PrimitiveType.LineLoop;
+            this.color = Color.Pink;
+            this.cm = new Punto();
+        }
+        //-----------------------------------------------------------------------------------------------------------------
+
         public Cara(Punto origen, PrimitiveType tipo, Dictionary<string, Punto> puntos, Color c, Punto cm)
         {
             this.lista = puntos;
@@ -30,8 +40,6 @@ namespace Proyecto1
             this.tipo = tipo;
             this.color = c;
             this.cm = new Punto(cm);
-            this.rotacion = new Punto();
-            this.escalacion = new Punto(1, 1, 1);
         }
         //-----------------------------------------------------------------------------------------------------------------
 
@@ -41,11 +49,20 @@ namespace Proyecto1
             this.cm = new Punto(cara.cm);
             this.tipo = cara.tipo;
             this.color = cara.color;
-            this.rotacion = new Punto();
-            this.escalacion = new Punto(1, 1, 1);
             this.lista = new Dictionary<string, Punto>();
             foreach (var puntos in cara.lista)
                 Adicionar(puntos.Key, new Punto(puntos.Value));
+        }
+
+        public static void SerializeJsonFile(string path, Cara obj)
+        {
+            string textJson = JsonConvert.SerializeObject(obj, Formatting.Indented);
+            File.WriteAllText(path, textJson);
+        }
+        public static Cara DeserializeJsonFile(string json)
+        {
+            string textJson = new StreamReader(json).ReadToEnd();
+            return JsonConvert.DeserializeObject<Cara>(textJson);
         }
         //--------------------------------------------------------------------------------------------------------------------
 

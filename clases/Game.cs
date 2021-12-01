@@ -13,32 +13,24 @@ namespace Proyecto1
 {
     public class Game : GameWindow
     {
-
-
         Escenario escenario;
+
+
         //-----------------------------------------------------------------------------------------------------------------
-        public Game(int width, int height, string title) : base(width, height, GraphicsMode.Default, title) {
-            
-        }
-        //-----------------------------------------------------------------------------------------------------------------
-        protected override void OnUpdateFrame(FrameEventArgs e)
-        {
-            base.OnUpdateFrame(e);
-        }
+        public Game(int width, int height, string title) : base(width, height, GraphicsMode.Default, title) { }
+        
         //-----------------------------------------------------------------------------------------------------------------
         protected override void OnLoad(EventArgs e)
         {
             GL.ClearColor(Color4.Black);
+            //------------------------------
             this.escenario = new Escenario();
-            this.cargarEscenario();
+            //Objeto.SerializeJsonFile("cubo.json", GetCuboSimple());
+            escenario.SetObjeto("cubo", Objeto.DeserializeJsonFile("cubo.json"));
+            //------------------------------
             base.OnLoad(e);     
         }
-        //-----------------------------------------------------------------------------------------------------------------
-        protected override void OnUnload(EventArgs e)
-        {
-            GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
-            base.OnUnload(e);
-        }
+        
         //-----------------------------------------------------------------------------------------------------------------
         protected override void OnRenderFrame(FrameEventArgs e)
         {
@@ -65,10 +57,16 @@ namespace Proyecto1
             GL.LoadIdentity();
             base.OnResize(e);
         }
-
-        public void cargarEscenario()
+        //-----------------------------------------------------------------------------------------------------------------
+        protected override void OnUnload(EventArgs e)
         {
-            this.escenario.SetObjeto("cubo1", GetCuboSimple());
+            GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
+            base.OnUnload(e);
+        }
+        //-----------------------------------------------------------------------------------------------------------------
+        protected override void OnUpdateFrame(FrameEventArgs e)
+        {
+            base.OnUpdateFrame(e);
         }
 
         public Objeto GetCuboSimple() //todos el mismo origen
