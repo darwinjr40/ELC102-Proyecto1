@@ -48,19 +48,6 @@ namespace Proyecto1
         }
         //--------------------------------------------------------------------------------------------------------------------
 
-        public Objeto(string json)
-        {
-            //DeserializeJsonFile
-            string x = new StreamReader(json).ReadToEnd();
-            Objeto objeto = JsonConvert.DeserializeObject<Objeto>(x);
-            this.origen = objeto.origen;
-            this.ancho = objeto.ancho;
-            this.alto = objeto.alto;
-            this.profundidad = objeto.profundidad;
-            this.lista = objeto.lista;
-        }
-        //--------------------------------------------------------------------------------------------------------------------
-
         public static void SerializeJsonFile(string path, Objeto obj)
         {
             string textJson = JsonConvert.SerializeObject(obj, Formatting.Indented);
@@ -95,14 +82,37 @@ namespace Proyecto1
         //-----------------------------------------------------------------------------------------------------------------
         public void Dibujar()
         {
-            foreach (var caras in lista.Values) 
+            foreach (var caras in lista.Values)
                 caras.Dibujar();
+        }   
+
+        //-----------------------------------------------------------------------------------------------------------------
+        public void Rotar(float x, float y, float z)
+        {
+            foreach (var caras in lista.Values)
+                caras.RotarO(x, y, z);
         }
-     
+        //-----------------------------------------------------------------------------------------------------------------
+        public void Escalar(float x, float y, float z)
+        {
+            foreach (var caras in lista.Values)
+                caras.Escalar(x, y, z);
+        }
+        //-----------------------------------------------------------------------------------------------------------------
+        public void Trasladar(float x, float y, float z)
+        {
+            foreach (var caras in lista.Values)
+                caras.Trasladar(x, y, z);
+        }
+        //-----------------------------------------------------------------------------------------------------------------
+        public void RotarE(float x, float y, float z)
+        {
+            foreach (var caras in lista.Values)
+                caras.RotarE(x, y, z);
+        }
 
-        
 
-       
+
 
     }
 }

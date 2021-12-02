@@ -42,7 +42,6 @@ namespace Proyecto1
             GL.LoadIdentity();
             //-----------------------
             this.escenario.Dibujar();
-            Console.WriteLine(this.escenario.escalacion.ToString());
             //-----------------------
             Context.SwapBuffers();
             base.OnRenderFrame(e);

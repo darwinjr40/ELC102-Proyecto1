@@ -10,3 +10,8 @@ C:\Users\darwin\Documents\Visual Studio 2019\project\Proyecto1_01\obj\Debug\Proy
 C:\Users\darwin\Documents\Visual Studio 2019\project\Proyecto1_01\obj\Debug\Proyecto1_01.pdb
 C:\Users\darwin\Documents\Visual Studio 2019\project\Proyecto1_01\bin\Debug\Newtonsoft.Json.dll
 C:\Users\darwin\Documents\Visual Studio 2019\project\Proyecto1_01\bin\Debug\Newtonsoft.Json.xml
+C:\Users\darwin\Documents\Visual Studio 2019\project\Proyecto1_01\bin\Debug\OpenTK.GLControl.dll
+C:\Users\darwin\Documents\Visual Studio 2019\project\Proyecto1_01\bin\Debug\OpenTK.GLControl.pdb
+C:\Users\darwin\Documents\Visual Studio 2019\project\Proyecto1_01\bin\Debug\OpenTK.GLControl.xml
+C:\Users\darwin\Documents\Visual Studio 2019\project\Proyecto1_01\obj\Debug\Proyecto1_01.src.Presentacion.Formulario.resources
+C:\Users\darwin\Documents\Visual Studio 2019\project\Proyecto1_01\obj\Debug\Proyecto1_01.csproj.GenerateResource.cache
