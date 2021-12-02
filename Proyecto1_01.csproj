@@ -53,12 +53,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="clases\Cara.cs" />
-    <Compile Include="clases\Escenario.cs" />
-    <Compile Include="clases\IObjeto.cs" />
-    <Compile Include="clases\Objeto.cs" />
+    <Compile Include="src\clases\Cara.cs" />
+    <Compile Include="src\clases\Escenario.cs" />
+    <Compile Include="src\clases\IObjeto.cs" />
+    <Compile Include="src\clases\Objeto.cs" />
     <Compile Include="Extras\Punto.cs" />
-    <Compile Include="clases\Game.cs" />
+    <Compile Include="src\clases\Game.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\Presentacion\ControlEventos.cs">
