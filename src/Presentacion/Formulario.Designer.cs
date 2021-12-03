@@ -44,6 +44,7 @@ namespace Proyecto1_01.src.Presentacion
             this.trackBarEscalacionX = new System.Windows.Forms.TrackBar();
             this.trackBarEscalacionY = new System.Windows.Forms.TrackBar();
             this.trackBarEscalacionZ = new System.Windows.Forms.TrackBar();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabTraslacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarTraslacionZ)).BeginInit();
@@ -218,11 +219,22 @@ namespace Proyecto1_01.src.Presentacion
             this.trackBarEscalacionZ.TabIndex = 7;
             this.trackBarEscalacionZ.Scroll += new System.EventHandler(this.trackBarEscalacionZ_Scroll);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(280, 44);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(124, 49);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            
+            // 
             // Formulario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1089, 522);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.comboSeleccionarCaras);
             this.Controls.Add(this.comboSeleccionar);
@@ -267,5 +279,6 @@ namespace Proyecto1_01.src.Presentacion
         public System.Windows.Forms.TrackBar trackBarEscalacionX;
         public System.Windows.Forms.TrackBar trackBarEscalacionY;
         public System.Windows.Forms.TrackBar trackBarEscalacionZ;
+        private System.Windows.Forms.Button button1;
     }
 }

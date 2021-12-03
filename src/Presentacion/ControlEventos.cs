@@ -4,14 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Proyecto1_01.src.Presentacion
 {
-    public partial class Formulario : Form
+    public partial class Formulario
     {
-        
-        public Escenario escenario;
+
+        public static Escenario escenario;
         Punto trasladar, escalar;
         string nombreComboCara, nombreComboObjeto;
         sbyte indiceComboObjeto, indiceComboCara;
@@ -24,18 +23,20 @@ namespace Proyecto1_01.src.Presentacion
             //Objeto.SerializeJsonFile("cubo.json", GetCuboSimple());
             escenario.SetObjeto("cubo1", Objeto.DeserializeJsonFile("cubo.json"));
             escenario.SetObjeto("cubo2", Objeto.DeserializeJsonFile("cubo.json"));
-            escenario.GetObjeto("cubo1").Trasladar(40, 0, 0);
-            escenario.GetObjeto("cubo2").Trasladar(-40, 0, 0);
+            escenario.GetObjeto("cubo1").Trasladar(-40, 0, 0);
+            //escenario.GetObjeto("cubo2").Trasladar(-40, 0, 0);
             escenario.GetObjeto("cubo2").Rotar(15, 40, 0.0f);
             iniciarCombo();
             trasladar = new Punto();
             escalar = new Punto();
         }
+
+
         //iniciadores----------------------------------------------------------------------------
         private void iniciarCombo()
         {
             comboSeleccionar.Items.Add("Escenario");
-            foreach (var name in this.escenario.lista.Keys) //dibujar los vertices
+            foreach (var name in escenario.lista.Keys) //dibujar los vertices
                 comboSeleccionar.Items.Add(name);
         }
 

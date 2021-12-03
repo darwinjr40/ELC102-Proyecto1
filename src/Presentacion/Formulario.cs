@@ -12,6 +12,7 @@ using OpenTK;
 using OpenTK.Graphics;
 using OpenTK.Graphics.OpenGL;
 using Proyecto1;
+using Proyecto1_01.src.clases.Guion;
 
 namespace Proyecto1_01.src.Presentacion
 {
@@ -19,10 +20,11 @@ namespace Proyecto1_01.src.Presentacion
     {
         
         GLControl glControl;
-        
+        ControladorAnimacion ca;
 
         private void Formulario_Load(object sender, EventArgs e)
         {
+            ca = new ControladorAnimacion();
             this.glControl = new GLControl();
             this.glControl.BackColor = System.Drawing.Color.CadetBlue;
             this.glControl.Location = new System.Drawing.Point(450, 0);
@@ -34,6 +36,7 @@ namespace Proyecto1_01.src.Presentacion
             this.glControl.Paint += new System.Windows.Forms.PaintEventHandler(this.glControl_Paint);
             this.glControl.Resize += new System.EventHandler(glControl_Resize);
             this.Controls.Add(this.glControl);
+            this.button1.Click += new System.EventHandler(ca.iniciarAnimacion);
         }
 
         private void glControl_Load(object sender, EventArgs e)

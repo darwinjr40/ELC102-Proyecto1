@@ -55,9 +55,13 @@
   <ItemGroup>
     <Compile Include="src\clases\Cara.cs" />
     <Compile Include="src\clases\Escenario.cs" />
+    <Compile Include="src\clases\Guion\Accion.cs" />
+    <Compile Include="src\clases\Guion\ControladorAnimacion.cs" />
+    <Compile Include="src\clases\Guion\Escena.cs" />
+    <Compile Include="src\clases\Guion\Guion.cs" />
     <Compile Include="src\clases\IObjeto.cs" />
     <Compile Include="src\clases\Objeto.cs" />
-    <Compile Include="Extras\Punto.cs" />
+    <Compile Include="src\clases\Extras\Punto.cs" />
     <Compile Include="src\clases\Game.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
