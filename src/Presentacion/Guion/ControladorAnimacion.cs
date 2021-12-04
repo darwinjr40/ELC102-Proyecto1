@@ -21,6 +21,7 @@ namespace Proyecto1_01.src.clases.Guion
             hilo = new Thread(new ThreadStart(play));
             sw = true;
 
+
         }
         public void iniciarAnimacion(Object sender, EventArgs e)
         {
