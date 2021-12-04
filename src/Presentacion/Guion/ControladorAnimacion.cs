@@ -20,6 +20,7 @@ namespace Proyecto1_01.src.clases.Guion
             this.guion.SetEscena(Escena.DeserializeJsonFile("escena.json"));
             hilo = new Thread(new ThreadStart(play));
             sw = true;
+
         }
         public void iniciarAnimacion(Object sender, EventArgs e)
         {
