@@ -1,0 +1,20 @@
+{
+  "nombreObjeto": [
+    "brazoD12"
+  ],
+  "tipoObjeto": 1,
+  "tiempoI": 0,
+  "tiempoF": 500,
+  "tiempoSiguiente": 0,
+  "accion": [
+    0,
+    1,
+    0
+  ],
+  "parametros": [
+    0.0,
+    -1.0,
+    0.0
+  ],
+  "cuantas": 12
+}

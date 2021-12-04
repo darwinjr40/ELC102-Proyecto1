@@ -1,15 +1,17 @@
-﻿using Proyecto1;
+﻿using OpenTK.Graphics.OpenGL;
+using Proyecto1;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Proyecto1_01.src.Presentacion
 {
+    class ControlEvento{ }
     public partial class Formulario
     {
-
         public static Escenario escenario;
         Punto trasladar, escalar;
         string nombreComboCara, nombreComboObjeto;
@@ -18,19 +20,34 @@ namespace Proyecto1_01.src.Presentacion
 
         public Formulario()
         {
+
+
             InitializeComponent();
             escenario = new Escenario();
             //Objeto.SerializeJsonFile("cubo.json", GetCuboSimple());
             escenario.SetObjeto("cubo1", Objeto.DeserializeJsonFile("cubo.json"));
-            escenario.SetObjeto("cubo2", Objeto.DeserializeJsonFile("cubo.json"));
-            escenario.GetObjeto("cubo1").Trasladar(-40, 0, 0);
-            //escenario.GetObjeto("cubo2").Trasladar(-40, 0, 0);
-            escenario.GetObjeto("cubo2").Rotar(15, 40, 0.0f);
+            //escenario.SetObjeto("cubo2", Objeto.DeserializeJsonFile("cubo.json"));
+            escenario.SetObjeto("brazoD11", Objeto.DeserializeJsonFile("brazo11.json"));
+            escenario.SetObjeto("brazoD12", Objeto.DeserializeJsonFile("brazo12.json"));
+            escenario.SetObjeto("brazoD21", Objeto.DeserializeJsonFile("brazo21.json"));
+            escenario.SetObjeto("brazoD22", Objeto.DeserializeJsonFile("brazo22.json"));
+            escenario.SetObjeto("brazoI21", Objeto.DeserializeJsonFile("brazo31.json"));
+            escenario.SetObjeto("brazoI22", Objeto.DeserializeJsonFile("brazo32.json"));
+            escenario.SetObjeto("brazoI11", Objeto.DeserializeJsonFile("brazo41.json"));
+            escenario.SetObjeto("brazoI12", Objeto.DeserializeJsonFile("brazo42.json"));
+            escenario.SetObjeto("espalda", Objeto.DeserializeJsonFile("espalda.json"));
+            escenario.SetObjeto("cola", Objeto.DeserializeJsonFile("cola.json"));
+            escenario.SetObjeto("cabeza", Objeto.DeserializeJsonFile("cabeza.json"));
+            escenario.Trasladar(-40, 0, 0);
+            escenario.Rotar(302, 0, 10);
+            //escenario.Rotar(0, 20, 0);
+            escenario.GetObjeto("cubo1").Trasladar(0, 40, 40);
+            //escenario.GetObjeto("cubo2").Trasladar(50, 0, 0);
+            //escenario.GetObjeto("cubo2").Rotar(15, 40, 0.0f);
             iniciarCombo();
             trasladar = new Punto();
             escalar = new Punto();
         }
-
 
         //iniciadores----------------------------------------------------------------------------
         private void iniciarCombo()
@@ -288,4 +305,7 @@ namespace Proyecto1_01.src.Presentacion
 
         }
     }
+
+
+
 }

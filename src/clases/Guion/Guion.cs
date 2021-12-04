@@ -19,5 +19,10 @@ namespace Proyecto1_01.src.clases.Guion
         {
             this.escenas = escenas;
         }
+
+        public void SetEscena(Escena e)
+        {
+            escenas.Add(e);
+        }
     }
 }

@@ -27,9 +27,9 @@ namespace Proyecto1_01.src.Presentacion
             ca = new ControladorAnimacion();
             this.glControl = new GLControl();
             this.glControl.BackColor = System.Drawing.Color.CadetBlue;
-            this.glControl.Location = new System.Drawing.Point(450, 0);
+            this.glControl.Location = new System.Drawing.Point(420, 0);
             this.glControl.Name = "glControl1";
-            this.glControl.Size = new System.Drawing.Size(this.Width - 470, this.Height - 44);//(780, this.Height);
+            this.glControl.Size = new System.Drawing.Size(this.Width - 440, this.Height - 44);//(780, this.Height);
             this.glControl.TabIndex = 1;
             this.glControl.VSync = false;
             this.glControl.Load += new System.EventHandler(this.glControl_Load);
@@ -43,13 +43,10 @@ namespace Proyecto1_01.src.Presentacion
         {
             GL.ClearColor(Color4.Black);
             GL.Enable(EnableCap.DepthTest);
-
-            
         }
 
         private void glControl_Paint(object sender, PaintEventArgs e)
         {
-            //GL.LoadIdentity();
             GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
             GL.Enable(EnableCap.DepthTest);
             GL.LoadIdentity();
@@ -63,10 +60,8 @@ namespace Proyecto1_01.src.Presentacion
 
         private void glControl_Resize(object sender, EventArgs e)
         {
-            int w = glControl.Width;
-            int h = glControl.Height;
-            float d = 70;
-            GL.Viewport(0, 0, w, h);
+            float d = 80;
+            GL.Viewport(0, 0, glControl.Width, glControl.Height);
             GL.MatrixMode(MatrixMode.Projection);
             GL.LoadIdentity();
             GL.Ortho(-d, d, -d, d, -d, d);
@@ -76,6 +71,9 @@ namespace Proyecto1_01.src.Presentacion
             glControl.Invalidate();
         }
 
-        
+        private void button2_Click(object sender, EventArgs e)
+        {
+            escenario.GetObjeto("brazoD12").Rotar(0, -1, 0);
+        }
     }
 }

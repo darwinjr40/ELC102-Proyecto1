@@ -72,6 +72,7 @@ namespace Proyecto1
             base.OnUpdateFrame(e);
         }
 
+        
         public void capturarTeclado()
         {
             KeyboardState input = Keyboard.GetState();

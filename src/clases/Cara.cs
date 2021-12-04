@@ -104,15 +104,7 @@ namespace Proyecto1
         {
             rotacionCm.acumular(x, y, z); 
         }
-
-        public void RotarO(float x, float y, float z)
-        {
-            rotacionO.acumular(x, y, z);
-        }
-        public void RotarE(float x, float y, float z)
-        {
-            rotacionE.acumular(x, y, z);
-        }
+        
         //--------------------------------------------------------------------------------------------------------------------
         public void Escalar(float x, float y, float z)
         {
@@ -129,12 +121,19 @@ namespace Proyecto1
             origen.acumular(x, y, z); 
         }
         //--------------------------------------------------------------------------------------------------------------------
-        
-        
-        
-        
-        
-        
+        public void RotarO(float x, float y, float z)
+        {
+            rotacionO.acumular(x, y, z);
+        }
+        public void RotarE(float x, float y, float z)
+        {
+            rotacionE.acumular(x, y, z);
+        }
+
+
+
+
+
         private void AplicarTransformacion()
         {
             this.rotar(new Punto(), rotacionE );
