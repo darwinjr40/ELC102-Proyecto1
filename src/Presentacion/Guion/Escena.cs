@@ -28,7 +28,10 @@ namespace Proyecto1_01.src.clases.Guion
             for (int i = 0; i < lista.Count; i++)
                 tiempoDeDuracion += (lista.ElementAt(i).tiempoF - lista.ElementAt(i).tiempoI );
         }
-
+        public void setAccion(Accion x)
+        {
+            acciones.Add(x);
+        }
         public Accion getAccion(int i)
         {
             return acciones.ElementAt(i);
