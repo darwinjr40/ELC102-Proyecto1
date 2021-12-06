@@ -13,6 +13,7 @@ namespace Proyecto1_01.src.clases.Guion
         Guion guion;
         Thread hilo;
         bool sw;
+
         public ControladorAnimacion()
         {
             //this.guion = new Guion(this.getEscena());
@@ -20,8 +21,6 @@ namespace Proyecto1_01.src.clases.Guion
             this.guion.SetEscena(Escena.DeserializeJsonFile("escena.json"));
             hilo = new Thread(new ThreadStart(play));
             sw = true;
-
-
         }
         public void iniciarAnimacion(Object sender, EventArgs e)
         {
@@ -33,7 +32,6 @@ namespace Proyecto1_01.src.clases.Guion
             {
                 sw = true;
             }
-            
         }
 
         public void play()
@@ -77,10 +75,6 @@ namespace Proyecto1_01.src.clases.Guion
             } while (tiempoActual <= dur);
         }
 
-        public void reproducirEscena(Escena e)
-        {
-            
-        }
 
         public void reproducirAccion(Accion a, int tiempoActual)
         {
@@ -100,11 +94,7 @@ namespace Proyecto1_01.src.clases.Guion
             //Formulario.escenario.Dibujar();
         }
 
-        public string[] getObjetoParte(string cad)
-        {
-            string[] res = cad.Split('.');
-            return res;
-        }
+  
 
         public void trasladar(Accion a, List<float> par, int tiempoActual)
         {
@@ -160,7 +150,7 @@ namespace Proyecto1_01.src.clases.Guion
         public void escalar(Accion a, List<float> par, int tiempoActual)
         {
             float tiempo = a.tiempoF - a.tiempoI;
-            float cada = tiempo / 12;
+            float cada = tiempo / a.cuantas;
             //Console.WriteLine(cada);
             //if (tiempoActual % cada == 0 && tiempoActual >= a.tiempoSiguiente)
             if (tiempoActual >= a.tiempoSiguiente)
